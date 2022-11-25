@@ -30,6 +30,9 @@
 <body>
     <div class="main d-flex justify-content-center align-items-center">
         <div class="login-box">
+            <div class="text-center">
+                <h1 class="h4">LOGIN</h1>
+            </div>
             @if (session('status'))
                 <div class="alert alert-{{ session('status') }} text-center" role="alert">
                     {{ session('message') }}
@@ -49,7 +52,7 @@
                     <button type="submit" class="btn btn-primary form-control">Login</button>
                 </div>
                 <div class="text-center">
-                    <a href="/register">Sign Up</a>
+                    Don't have account yet? <a href="/register">Sign Up</a>
                 </div>
             </form>
         </div>
