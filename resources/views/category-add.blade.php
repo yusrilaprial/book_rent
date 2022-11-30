@@ -18,7 +18,7 @@
             @csrf
             <div>
                 <label for="name" class="form-label">Name</label>
-                <input type="text" name="name" id="name" class="form-control" placeholder="Category Name">
+                <input type="text" name="name" id="name" class="form-control" placeholder="Category Name" required>
             </div>
             <div class="mt-3">
                 <a href="/categories" class="btn btn-secondary me-3">Back</a>
