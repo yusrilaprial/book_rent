@@ -4,8 +4,6 @@ namespace App\Http\Controllers;
 
 use App\Models\Category;
 use Illuminate\Http\Request;
-
-use function GuzzleHttp\Promise\all;
 use Illuminate\Support\Facades\Session;
 
 class CategoryController extends Controller
