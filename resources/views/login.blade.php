@@ -17,6 +17,7 @@
     }
 
     .login-box {
+        border-radius: 25px;
         width: 500px;
         border: solid 1px;
         padding: 10px;
