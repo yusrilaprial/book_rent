@@ -58,6 +58,13 @@ Route::middleware('auth')->group(function() {
     Route::get('/category-restore/{slug}', [CategoryController::class, 'restore']);
 
     Route::get('/users', [UserController::class, 'index']);
+    Route::get('/register-user', [UserController::class, 'registerUser']);
+    Route::get('/user-detail/{slug}', [UserController::class, 'show']);
+    Route::get('/user-approve/{slug}', [UserController::class, 'approve']);
+    Route::get('/user-ban/{slug}', [UserController::class, 'ban']);
+    Route::get('/user-destroy/{slug}', [UserController::class, 'destroy']);
+    Route::get('/user-banned', [UserController::class, 'bannedUser']);
+    Route::get('/user-unbanned/{slug}', [UserController::class, 'unbanned']);
 
     Route::get('/rent-logs', [RentLogController::class, 'index']);
 });
