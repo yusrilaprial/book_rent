@@ -28,7 +28,7 @@
             <div class="card h-100">
                 <div class="d-flex justify-content-center h-100 mt-1">
                     @if ($item->cover != '')
-                        <img src="{{ asset('storage/cover/'.$item->cover) }}" class="card-img-top" draggable="false" style="width: 8rem;">
+                        <img src="{{ asset('storage/cover/'.$item->cover) }}" class="card-img-top" draggable="false" style="width: 8rem;" loading="lazy">
                     @else
                         <img src="{{ asset('image/cover.jpg') }}" class="card-img-top" draggable="false"  style="width: 8rem;">
                     @endif

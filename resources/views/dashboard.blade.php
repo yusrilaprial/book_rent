@@ -40,24 +40,7 @@
         </div>
     </div>
     <div class="mt-4">
-        <h2>#Rent Log</h2>
-        <table class="table">
-            <thead>
-                <tr>
-                    <th>No.</th>
-                    <th>User</th>
-                    <th>Book</th>
-                    <th>Rent Date</th>
-                    <th>Return Date</th>
-                    <th>Actual Return Date</th>
-                    <th>Status</th>
-                </tr>
-            </thead>
-            <tbody>
-                <tr>
-                    <td colspan="7" style="text-align: center">No Data</td>
-                </tr>
-            </tbody>
-        </table>
+        <h2>#New Rent Log</h2>
+        <x-rent-log--table :rentlogs='$rentlogs'/>
     </div>
 @endsection

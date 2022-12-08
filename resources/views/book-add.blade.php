@@ -18,11 +18,6 @@
         <form action="/book-add" method="post" enctype="multipart/form-data">
             @csrf
             <div class="mt-3">
-                <label for="code" class="form-label">Code</label>
-                <input type="text" name="book_code" id="book_code" class="form-control" placeholder="Book Code"
-                    value="{{ old('book_code') }}" required>
-            </div>
-            <div class="mt-3">
                 <label for="title" class="form-label">Title</label>
                 <input type="text" name="title" id="title" class="form-control" placeholder="Book Title"
                     value="{{ old('title') }}" required>

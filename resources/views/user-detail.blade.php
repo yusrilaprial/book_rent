@@ -9,7 +9,8 @@
             <a href="/user-approve/{{ $user->slug }}" class="btn btn-primary">Approve User</a>
         @endif
     </div>
-    <div class="mt-4 col-sm-12 col-md-6 col-lg-6">
+    <div class="row">
+    <div class="mt-4 col-sm-12 col-md-4 col-lg-4">
         @if (session('status'))
         <div class="alert alert-{{ session('status') }} text-center" role="alert">
             {{ session('message') }}
@@ -39,4 +40,8 @@
             @endif
         </div>
     </div>
+    <div class="mt-4 col-sm-12 col-md-8 col-lg-8">
+        <x-rent-log--table :rentlogs='$rentlogs'/>
+    </div>
+</div>
 @endsection

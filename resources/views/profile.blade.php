@@ -3,5 +3,38 @@
 @section('title', 'Profile')
 
 @section('content')
-    <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Voluptas adipisci eligendi magnam et, quas nihil nesciunt nobis a vero consequatur eveniet totam voluptatem odit quae dolores at aliquid praesentium debitis voluptatum eius. Suscipit, laboriosam nesciunt. Aperiam facilis eligendi recusandae blanditiis ad odio placeat architecto iste, rerum ullam ab iure debitis dicta accusantium tenetur ex atque, soluta distinctio cupiditate possimus reiciendis temporibus eum. Dolore iure consequuntur commodi similique facilis labore, ab id. Quia sit cumque porro sapiente, labore tempora eius voluptatum laborum tempore amet minima obcaecati blanditiis repellat aliquid nostrum a reprehenderit aliquam molestias distinctio deleniti cupiditate ducimus non quod ab. Ipsa voluptate dolor nobis eveniet ratione id doloribus quibusdam vitae? At vel harum voluptate nemo odio, officiis voluptatem! Sed, deserunt incidunt! Facilis quis at aut commodi nobis alias tempora esse omnis necessitatibus deserunt. Vel delectus est mollitia alias nesciunt. Dolores ratione possimus, sint a quos voluptates consequatur quasi, reiciendis corrupti nulla natus doloribus nam fugiat vitae accusantium iste voluptatibus atque esse! Perferendis at alias laudantium recusandae, quod dolorem impedit corrupti, provident, ipsa animi iure itaque molestias totam dolore? Facilis ipsum enim illo dicta minima omnis vel aperiam iure pariatur necessitatibus! Veritatis sit accusamus commodi accusantium quibusdam eveniet, alias beatae dolor saepe laudantium. Neque ab praesentium, quam quos aspernatur eum eaque fuga molestiae aut sunt nisi, culpa facilis in amet blanditiis excepturi nostrum vero dicta veniam cumque nesciunt. Eaque sit, ex exercitationem soluta nemo assumenda ea? Ab libero odit saepe aspernatur. Ullam repudiandae fuga nobis. Odit obcaecati perferendis, reprehenderit maxime autem corporis. Repellat sequi quaerat rerum fugit! Perspiciatis, dolorem quo ipsam inventore ab quae quam natus atque officia saepe minus! In vero ipsam eveniet accusantium temporibus autem sunt voluptate optio aut et eum minus sapiente, ullam, iste nesciunt corporis? Sequi sint, cum possimus tenetur nostrum hic molestias, amet blanditiis voluptate tempora provident ut nulla pariatur cumque ducimus illum nihil, dolore facere architecto sapiente necessitatibus fugit aliquam numquam iste? Ut dolores architecto animi optio, laudantium commodi dolore, recusandae libero quis suscipit nemo ipsam consequuntur. Quas, amet optio quos eligendi itaque ut vitae magnam fugit, soluta corrupti minima. Voluptas nostrum blanditiis ea neque, sed cupiditate soluta ex omnis beatae, cum expedita. Iusto optio, dolore officia quisquam laboriosam ea vitae placeat deserunt reiciendis officiis suscipit possimus veniam molestiae consequatur totam laudantium neque fugiat sed dolor, non accusantium, sint explicabo. Maiores esse enim voluptatibus similique repellat fugit earum, animi optio corrupti ratione doloribus neque itaque deserunt molestias quibusdam? Sapiente impedit tempora velit eaque totam, laudantium, adipisci sit recusandae placeat id est voluptatum? Perferendis optio ad consequatur aut temporibus corrupti praesentium asperiores voluptate quam hic, porro similique odit repellat recusandae in nemo officia fuga nam velit. Consectetur ipsum reiciendis accusantium neque vero ad cum qui perspiciatis nam omnis esse, illo eligendi suscipit corrupti inventore quo rem ut hic ipsa dolor! Nesciunt, facere. Dolor libero minima eligendi cum, aliquam facilis provident natus, aspernatur, veritatis consequuntur ea architecto repellat. Minus consectetur nam laborum qui. Quia rerum harum sint. Tempora, doloremque placeat. Dolor ipsum exercitationem libero nihil adipisci accusantium?</p>
+<h1>User Detail</h1>
+<div class="mt-4 d-flex justify-content-end">
+    @if ($user->status == 'inactive')
+        <a href="/user-approve/{{ $user->slug }}" class="btn btn-primary">Approve User</a>
+    @endif
+</div>
+<div class="row">
+<div class="mt-4 col-sm-12 col-md-4 col-lg-4">
+    @if (session('status'))
+    <div class="alert alert-{{ session('status') }} text-center" role="alert">
+        {{ session('message') }}
+    </div>
+    @endif
+    <div>
+        <label for="username" class="form-label">Username</label>
+        <input type="text" name="username" id="username" class="form-control" value="{{ $user->username }}" readonly>
+    </div>
+    <div class="mt-3">
+        <label for="phone" class="form-label">Phone</label>
+        <input type="text" name="phone" id="phone" class="form-control" value="{{ $user->phone }}" readonly>
+    </div>
+    <div class="mt-3">
+        <label for="address" class="form-label">Address</label>
+        <textarea name="address" id="address" class="form-control" style="resize: none" readonly>{{ $user->address }}</textarea>
+    </div>
+    <div class="mt-3">
+        <label for="status" class="form-label">Status</label>
+        <input type="text" name="status" id="status" class="form-control" value="{{ $user->status }}" readonly>
+    </div>
+</div>
+<div class="mt-4 col-sm-12 col-md-8 col-lg-8">
+    <x-rent-log--table :rentlogs='$rentlogs'/>
+</div>
+</div>
 @endsection

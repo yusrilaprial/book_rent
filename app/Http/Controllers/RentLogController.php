@@ -2,10 +2,13 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\RentLogs;
+
 class RentLogController extends Controller
 {
     public function index()
     {
-        return view('rentlog');
+        $rentlogs = RentLogs::with(['user', 'book'])->get();
+        return view('rentlog', ['rentlogs' => $rentlogs]);
     }
 }

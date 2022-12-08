@@ -6,6 +6,7 @@ use App\Http\Controllers\BookController;
 use App\Http\Controllers\UserController;
 use App\Http\Controllers\PublicController;
 use App\Http\Controllers\RentLogController;
+use App\Http\Controllers\BookRentController;
 use App\Http\Controllers\CategoryController;
 use App\Http\Controllers\DashboardController;
 
@@ -31,9 +32,7 @@ Route::middleware('guest')->group(function () {
 
 Route::middleware('auth')->group(function () {
     Route::get('/logout', [AuthController::class, 'logout']);
-
-    Route::get('/rent-logs', [RentLogController::class, 'index']);
-
+    
     Route::get('/profile', [UserController::class, 'profile'])->middleware('only_client');
     
     Route::middleware('only_admin')->group(function () {
@@ -48,7 +47,7 @@ Route::middleware('auth')->group(function () {
         Route::get('/book-destroy/{slug}', [BookController::class, 'destroy']);
         Route::get('/book-deleted', [BookController::class, 'deletedBook']);
         Route::get('/book-restore/{slug}', [BookController::class, 'restore']);
-
+        
         Route::get('/categories', [CategoryController::class, 'index']);
         Route::get('/category-add', [CategoryController::class, 'add']);
         Route::post('/category-add', [CategoryController::class, 'store']);
@@ -58,7 +57,7 @@ Route::middleware('auth')->group(function () {
         Route::get('/category-destroy/{slug}', [CategoryController::class, 'destroy']);
         Route::get('/category-deleted', [CategoryController::class, 'deletedCategory']);
         Route::get('/category-restore/{slug}', [CategoryController::class, 'restore']);
-
+        
         Route::get('/users', [UserController::class, 'index']);
         Route::get('/register-user', [UserController::class, 'registerUser']);
         Route::get('/user-detail/{slug}', [UserController::class, 'show']);
@@ -67,5 +66,12 @@ Route::middleware('auth')->group(function () {
         Route::get('/user-destroy/{slug}', [UserController::class, 'destroy']);
         Route::get('/user-banned', [UserController::class, 'bannedUser']);
         Route::get('/user-unbanned/{slug}', [UserController::class, 'unbanned']);
+        
+        Route::get('/book-rent', [BookRentController::class, 'index']);
+        Route::post('/book-rent', [BookRentController::class, 'store']);
+        Route::get('/book-return', [BookRentController::class, 'returnBook']);
+        Route::post('/book-return', [BookRentController::class, 'saveReturnBook']);
+
+        Route::get('/rent-logs', [RentLogController::class, 'index']);
     });
 });

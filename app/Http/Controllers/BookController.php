@@ -23,7 +23,6 @@ class BookController extends Controller
     public function store(Request $request)
     {
         $validated = $request->validate([
-            'book_code' => 'required|unique:books|max:255',
             'title' => 'required|max:255',
             'image' => 'file|max:1000'
         ]);
@@ -51,7 +50,6 @@ class BookController extends Controller
     public function update(Request $request, $slug)
     {
         $validated = $request->validate([
-            'book_code' => 'required|max:255',
             'title' => 'required|max:255',
             'image' => 'file|max:1000'
         ]);
