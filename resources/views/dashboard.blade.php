@@ -39,8 +39,44 @@
             </div>
         </div>
     </div>
-    <div class="mt-4">
-        <h2>#New Rent Log</h2>
-        <x-rent-log--table :rentlogs='$rentlogs'/>
+    <div class="row">
+        <div class="mt-4 col-12">
+            <h2>#Rent Grafik</h2>
+            <canvas id="myChart"></canvas>
+        </div>
+        <div class="mt-4 col-12">
+            <h2>#New Rent Log</h2>
+            <x-rent-log-table :rentlogs='$rentlogs'/>
+        </div>
     </div>
+    <script type="text/javascript" src="{{ asset('js/Chart.js') }}"></script>
+    <script>
+        var ctx = document.getElementById("myChart").getContext('2d');
+		var myChart = new Chart(ctx, {
+			type: 'line',
+			data: {
+				labels: ["7 Hari Lalu", "6 Hari Lalu", "5 Hari Lalu", "4 Hari Lalu", "3 Hari Lalu", "2 Hari Lalu", "1 Hari Lalu", "Hari Ini"],
+				datasets: [{
+					label: 'Jumlah Rental Buku',
+					data: [{{ $tujuhhari }}, {{ $enamhari }}, {{ $limahari }}, {{ $empathari }}, {{ $tigahari }}, {{ $duahari }}, {{ $satuhari }}, {{ $sekarang }}],
+					backgroundColor: [
+					'rgba(255, 99, 132, 0.2)',
+					],
+					borderColor: [
+					'rgba(255,99,132,1)',
+					],
+					borderWidth: 1
+				}]
+			},
+			options: {
+				scales: {
+					yAxes: [{
+						ticks: {
+							beginAtZero:true
+						}
+					}]
+				}
+			}
+		});
+    </script>
 @endsection
